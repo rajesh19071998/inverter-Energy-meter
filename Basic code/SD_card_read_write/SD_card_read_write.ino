@@ -33,7 +33,7 @@ void setup() {
 
   Serial.print("Initializing SD card...");
 
-  if (!SD.begin(10)) {
+  if (!SD.begin(53)) {
     Serial.println("initialization failed!");
     while (1);
   }
@@ -41,11 +41,11 @@ void setup() {
 
   // open the file. note that only one file can be open at a time,
   // so you have to close this one before opening another.
-  myFile = SD.open("30042022.txt", FILE_WRITE); //8 char ony file name
+  myFile = SD.open("07052023.txt", FILE_WRITE); //8 char ony file name
 
   // if the file opened okay, write to it:
   if (myFile) {
-    Serial.print("Writing to 30042022_log.txt...");
+    Serial.print("Writing to 07052023.txt...");
     myFile.println("AC_V = 230;AC_A = 10;AC_P = 2000;AC_pf = 1;DC_V = 12;DC_A = 150;Water = 1000L; Motor = OFF bore OFF; MCU ; tank = ok; motor=ok ;clock=ok;lora=ok;RTC=ok;  ");
     // close the file:
     myFile.close();
@@ -56,9 +56,9 @@ void setup() {
   }
 
   // re-open the file for reading:
-  myFile = SD.open("30042022.txt"); //8 char only file name
+  myFile = SD.open("07052023.txt"); //8 char only file name
   if (myFile) {
-    Serial.println("Reading 30042022.txt:");
+    Serial.println("Reading 07052023.txt:");
 
     // read from the file until there's nothing else in it:
     while (myFile.available()) {
